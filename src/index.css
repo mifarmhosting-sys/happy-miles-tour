@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Lora";
+  src: url("/assets/fonts/Lora.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-display: Lora;
+    --font-body: DM Sans;
+    --font-mono: monospace;
+    --radius: 0.625rem;
+
+    --background: 0.99 0.005 75;
+    --foreground: 0.15 0.02 255;
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.02 255;
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.02 255;
+
+    --primary: 0.7 0.22 48;
+    --primary-foreground: 1 0 0;
+
+    --secondary: 0.45 0.2 253;
+    --secondary-foreground: 0.98 0 0;
+    --muted: 0.96 0.01 75;
+    --muted-foreground: 0.45 0.05 255;
+
+    --accent: 0.72 0.17 58;
+    --accent-foreground: 0.15 0.02 255;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 1 0 0;
+
+    --border: 0.88 0.02 75;
+    --input: 0.88 0.02 75;
+    --ring: 0.65 0.18 48;
+
+    --chart-1: 0.65 0.18 48;
+    --chart-2: 0.35 0.15 253;
+    --chart-3: 0.72 0.17 58;
+    --chart-4: 0.55 0.22 25;
+    --chart-5: 0.45 0.05 255;
+
+    --sidebar: 1 0 0;
+    --sidebar-foreground: 0.15 0.02 255;
+    --sidebar-primary: 0.65 0.18 48;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.96 0.01 75;
+    --sidebar-accent-foreground: 0.15 0.02 255;
+    --sidebar-border: 0.88 0.02 75;
+    --sidebar-ring: 0.65 0.18 48;
+
+    --coral: 0.72 0.2 35;
+    --teal: 0.6 0.18 190;
+    --vibrant-purple: 0.6 0.2 300;
+  }
+
+  .dark {
+    --background: 0.12 0.02 255;
+    --foreground: 0.97 0.005 75;
+    --card: 0.16 0.01 255;
+    --card-foreground: 0.97 0.005 75;
+    --popover: 0.16 0.01 255;
+    --popover-foreground: 0.97 0.005 75;
+
+    --primary: 0.72 0.2 48;
+    --primary-foreground: 0.12 0.02 255;
+
+    --secondary: 0.55 0.18 253;
+    --secondary-foreground: 0.95 0.01 253;
+    --muted: 0.22 0.01 255;
+    --muted-foreground: 0.65 0.05 255;
+
+    --accent: 0.72 0.17 58;
+    --accent-foreground: 0.12 0.02 255;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.97 0.005 75;
+
+    --border: 0.22 0.01 255;
+    --input: 0.22 0.01 255;
+    --ring: 0.72 0.2 48;
+
+    --chart-1: 0.72 0.2 48;
+    --chart-2: 0.55 0.18 253;
+    --chart-3: 0.72 0.17 58;
+    --chart-4: 0.65 0.19 22;
+    --chart-5: 0.65 0.05 255;
+
+    --sidebar: 0.16 0.01 255;
+    --sidebar-foreground: 0.97 0.005 75;
+    --sidebar-primary: 0.72 0.2 48;
+    --sidebar-primary-foreground: 0.12 0.02 255;
+    --sidebar-accent: 0.22 0.01 255;
+    --sidebar-accent-foreground: 0.95 0.01 253;
+    --sidebar-border: 0.22 0.01 255;
+    --sidebar-ring: 0.72 0.2 48;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .text-gradient-saffron {
+    background: linear-gradient(135deg, oklch(0.7 0.22 48), oklch(0.72 0.2 35));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-saffron-coral {
+    background: linear-gradient(135deg, oklch(0.7 0.22 48), oklch(0.72 0.2 35));
+  }
+  .gradient-blue-teal {
+    background: linear-gradient(
+      135deg,
+      oklch(0.45 0.2 253),
+      oklch(0.6 0.18 190)
+    );
+  }
+  .gradient-green-teal {
+    background: linear-gradient(
+      135deg,
+      oklch(0.55 0.22 145),
+      oklch(0.6 0.18 190)
+    );
+  }
+  .gradient-purple-blue {
+    background: linear-gradient(135deg, oklch(0.6 0.2 300), oklch(0.45 0.2 253));
+  }
+}
+
+@theme {
+  --font-display: Lora;
+  --font-body: DM Sans;
+  --font-mono: monospace;
+  --radius: 0.625rem;
+}
