@@ -26,6 +26,11 @@ const HoneymoonPackagesPage = lazy(
   () => import("@/pages/HoneymoonPackagesPage"),
 );
 const CorporateToursPage = lazy(() => import("@/pages/CorporateToursPage"));
+const AdminLoginPage = lazy(() => import("@/pages/AdminLoginPage"));
+const AdminEnquiriesPage = lazy(() => import("@/pages/AdminEnquiriesPage"));
+const AdminEnquiryDetailPage = lazy(
+  () => import("@/pages/AdminEnquiryDetailPage"),
+);
 
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col gap-4 p-8 bg-background">
@@ -187,6 +192,36 @@ const corporateToursRoute = createRoute({
   ),
 });
 
+const adminLoginRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/admin/login",
+  component: () => (
+    <Suspense fallback={<PageLoader />}>
+      <AdminLoginPage />
+    </Suspense>
+  ),
+});
+
+const adminEnquiriesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/admin/enquiries",
+  component: () => (
+    <Suspense fallback={<PageLoader />}>
+      <AdminEnquiriesPage />
+    </Suspense>
+  ),
+});
+
+const adminEnquiryDetailRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/admin/enquiries/$id",
+  component: () => (
+    <Suspense fallback={<PageLoader />}>
+      <AdminEnquiryDetailPage />
+    </Suspense>
+  ),
+});
+
 const routeTree = rootRoute.addChildren([
   homeRoute,
   aboutRoute,
@@ -202,6 +237,9 @@ const routeTree = rootRoute.addChildren([
   internationalToursRoute,
   honeymoonPackagesRoute,
   corporateToursRoute,
+  adminLoginRoute,
+  adminEnquiriesRoute,
+  adminEnquiryDetailRoute,
 ]);
 
 const router = createRouter({ routeTree });

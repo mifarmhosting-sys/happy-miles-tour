@@ -44,10 +44,6 @@ const socialLinks = [
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const hostname =
-    typeof window !== "undefined"
-      ? encodeURIComponent(window.location.hostname)
-      : "";
 
   return (
     <footer data-ocid="footer" className="relative overflow-hidden">
@@ -274,18 +270,6 @@ export function Footer() {
           <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
             <span className="text-xs text-white/40">
               © {year} The Happy Miles Tourism. All rights reserved.
-            </span>
-            <span className="text-xs text-white/40">
-              Built with love using{" "}
-              <a
-                href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${hostname}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white/80 transition-colors"
-                style={{ color: "oklch(0.72 0.20 55)" }}
-              >
-                caffeine.ai
-              </a>
             </span>
           </div>
         </div>

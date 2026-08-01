@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { createEnquiry } from "@/services/enquiries";
+import { ApiError } from "@/services/api";
 import { Loader2 } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
@@ -27,6 +29,7 @@ interface ContactFormData {
   phone: string;
   serviceInterest: string;
   message: string;
+  website: string;
 }
 
 const contactInfo = [
@@ -73,15 +76,43 @@ export default function ContactPage() {
     handleSubmit,
     formState: { errors },
     reset,
+    setError,
   } = useForm<ContactFormData>();
 
-  const onSubmit = async (_data: ContactFormData) => {
+  const onSubmit = async (data: ContactFormData) => {
+    if (isSubmitting) return;
+
     setIsSubmitting(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setIsSubmitting(false);
-    setSubmitted(true);
-    toast.success("Message sent! We'll get back to you within 24 hours.");
-    reset();
+    try {
+      await createEnquiry({
+        name: data.name.trim(),
+        email: data.email.trim().toLowerCase(),
+        phone: data.phone.trim(),
+        subject: data.serviceInterest.trim(),
+        message: data.message.trim(),
+        website: data.website,
+      });
+      setSubmitted(true);
+      toast.success("Message sent! We'll get back to you within 24 hours.");
+      reset();
+    } catch (error) {
+      console.error("Failed to submit enquiry", error);
+      if (error instanceof ApiError && error.fields) {
+        for (const [field, message] of Object.entries(error.fields)) {
+          const formField = field === "subject" ? "serviceInterest" : field;
+          if (["name", "email", "phone", "serviceInterest", "message"].includes(formField)) {
+            setError(formField as keyof ContactFormData, { type: "server", message });
+          }
+        }
+      }
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "We couldn't send your enquiry. Please try again or call us directly.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -275,6 +306,16 @@ export default function ContactPage() {
                     className="space-y-5"
                     data-ocid="contact.form"
                   >
+                    <div className="absolute -left-[10000px] h-px w-px overflow-hidden" aria-hidden="true">
+                      <Label htmlFor="c-website">Website</Label>
+                      <Input
+                        id="c-website"
+                        type="text"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        {...register("website")}
+                      />
+                    </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
                         <Label htmlFor="c-name">Full Name *</Label>
@@ -345,11 +386,13 @@ export default function ContactPage() {
                         )}
                       </div>
                       <div className="space-y-1.5">
-                        <Label htmlFor="c-service">Service Interest</Label>
+                        <Label htmlFor="c-service">Service Interest *</Label>
                         <select
                           id="c-service"
-                          {...register("serviceInterest")}
-                          className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                          {...register("serviceInterest", {
+                            required: "Please select a service",
+                          })}
+                          className={`flex h-9 w-full rounded-md border bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring ${errors.serviceInterest ? "border-destructive" : "border-input"}`}
                           data-ocid="contact.service_select"
                         >
                           <option value="">Select a service...</option>
@@ -359,6 +402,11 @@ export default function ContactPage() {
                             </option>
                           ))}
                         </select>
+                        {errors.serviceInterest && (
+                          <p className="text-destructive text-xs">
+                            {errors.serviceInterest.message}
+                          </p>
+                        )}
                       </div>
                     </div>
                     <div className="space-y-1.5">
@@ -446,8 +494,8 @@ export default function ContactPage() {
           >
             <div className="rounded-xl overflow-hidden">
               <img
-                src="/assets/generated/tour-tajmahal.dim_600x400.jpg"
-                alt="Kolkata office location"
+                src="/assets/images/Victoria-Memorial-Kolkata-Wallpaper-for-Wall.jpg"
+                alt="Victoria Memorial in Kolkata"
                 className="w-full h-64 object-cover"
               />
             </div>

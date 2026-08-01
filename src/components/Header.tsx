@@ -22,6 +22,9 @@ const navLinks = [
   { label: "Contact", to: "/contact" },
 ];
 
+// Keep these routes available while temporarily hiding their header links.
+const temporarilyHiddenNavLinks = new Set(["Flights", "Trains", "Forex"]);
+
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -184,6 +187,7 @@ export function Header() {
                     to={link.to}
                     className={cn(
                       "relative px-3 py-1.5 rounded-full text-sm font-bold transition-all duration-200 group",
+                      temporarilyHiddenNavLinks.has(link.label) && "hidden",
                       currentPath === link.to
                         ? "bg-white/25 text-white"
                         : "text-white/90 hover:bg-white/15 hover:text-white",
@@ -300,6 +304,7 @@ export function Header() {
                   onClick={() => setMobileOpen(false)}
                   className={cn(
                     "px-4 py-3 rounded-xl text-sm font-bold transition-all",
+                    temporarilyHiddenNavLinks.has(link.label) && "hidden",
                     currentPath === link.to
                       ? "bg-white/20 text-white"
                       : "text-white/80 hover:bg-white/10 hover:text-white",

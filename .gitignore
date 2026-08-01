@@ -1,4 +1,19 @@
-﻿node_modules/
-dist/
-.env*
+node_modules/
+.pnpm-store/
+.cache/
 *.log
+
+# Local environment and production credentials
+.env
+.env.local
+.env.production
+.env*.local
+config.php
+private/
+api/config.php
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
