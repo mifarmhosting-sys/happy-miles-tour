@@ -479,13 +479,13 @@ export default function TourDetailPage() {
                   </a>
                   <div className="mt-3 text-center">
                     <a
-                      href="tel:+919831398372"
+                      href="tel:+918910364270"
                       className="flex items-center justify-center gap-2 text-sm font-medium hover:underline transition-colors"
                       style={{ color: "oklch(0.55 0.18 265)" }}
                       data-ocid="tour_detail.call_button"
                     >
                       <Phone className="h-4 w-4" />
-                      Call: +91 98313 98372
+                      Call: +91 89103 64270
                     </a>
                   </div>
                 </div>
@@ -514,13 +514,13 @@ export default function TourDetailPage() {
                   daily, 10am–10pm to help plan your perfect trip.
                 </p>
                 <a
-                  href="tel:+919831398372"
+                  href="tel:+918910364270"
                   className="flex items-center gap-2 font-bold hover:underline text-sm"
                   style={{ color: "oklch(0.55 0.18 265)" }}
                   data-ocid="tour_detail.alt_phone_link"
                 >
                   <Phone className="h-3.5 w-3.5" />
-                  +91 98313 98372
+                  +91 89103 64270
                 </a>
               </div>
             </div>

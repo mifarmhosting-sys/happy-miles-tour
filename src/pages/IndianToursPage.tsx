@@ -260,12 +260,12 @@ export default function IndianToursPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="tel:+919831398372"
+              href="tel:+918910364270"
               className="inline-flex items-center gap-2 text-2xl font-bold text-white hover:text-white/80 transition-colors"
               data-ocid="indian-tours.phone_link"
             >
               <Phone className="h-6 w-6" />
-              98313-98372
+              89103-64270
             </a>
             <Button
               asChild

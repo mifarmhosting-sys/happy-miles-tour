@@ -453,7 +453,7 @@ export default function HoneymoonPackagesPage() {
               <p className="text-white/85">
                 Our honeymoon specialist will contact you within 24 hours.
               </p>
-              <p className="mt-4 font-bold text-lg">📞 98313-98372</p>
+              <p className="mt-4 font-bold text-lg">📞 89103-64270</p>
             </motion.div>
           ) : (
             <form
@@ -562,12 +562,12 @@ export default function HoneymoonPackagesPage() {
               Or call us directly:
             </p>
             <a
-              href="tel:+919831398372"
+              href="tel:+918910364270"
               className="inline-flex items-center gap-2 text-xl font-bold mt-1"
               style={{ color: "oklch(0.65 0.22 22)" }}
               data-ocid="honeymoon.phone_link"
             >
-              <Phone className="h-5 w-5" /> 98313-98372
+              <Phone className="h-5 w-5" /> 89103-64270
             </a>
           </div>
         </div>

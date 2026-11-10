@@ -578,7 +578,7 @@ export default function AboutPage() {
                   {
                     Icon: Phone,
                     label: "Phone",
-                    text: "+91 98313-98372",
+                    text: "+91 89103-64270",
                     sub: "Call / WhatsApp",
                     grad: "from-teal-400 to-blue-500",
                   },

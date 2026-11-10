@@ -200,7 +200,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="tel:+919831398372"
+                    href="tel:+918910364270"
                     className="flex gap-3 text-sm text-white/60 hover:text-white transition-colors group"
                     data-ocid="footer.phone_link"
                   >
@@ -216,7 +216,7 @@ export function Footer() {
                         style={{ color: "oklch(0.75 0.20 25)" }}
                       />
                     </div>
-                    98313-98372
+                    89103-64270
                   </a>
                 </li>
                 <li className="flex gap-3">
@@ -238,7 +238,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="mailto:info@happymiles.in"
+                    href="mailto:sales@thehappymilestourism.com"
                     className="flex gap-3 text-sm text-white/60 hover:text-white transition-colors"
                     data-ocid="footer.email_link"
                   >
@@ -254,7 +254,7 @@ export function Footer() {
                         style={{ color: "oklch(0.65 0.20 240)" }}
                       />
                     </div>
-                    info@happymiles.in
+                    sales@thehappymilestourism.com
                   </a>
                 </li>
               </ul>

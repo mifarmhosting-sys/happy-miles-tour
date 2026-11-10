@@ -56,12 +56,12 @@ export function Header() {
           </span>
           <div className="flex items-center gap-4 ml-auto">
             <a
-              href="tel:+919831398372"
+              href="tel:+918910364270"
               className="flex items-center gap-1.5 text-white hover:text-yellow-200 transition-colors font-semibold tracking-wide"
               data-ocid="header.phone_link"
             >
               <Phone className="h-3 w-3" />
-              98313-98372
+              89103-64270
             </a>
           </div>
         </div>

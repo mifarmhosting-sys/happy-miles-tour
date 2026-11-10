@@ -36,18 +36,19 @@ const contactInfo = [
   {
     emoji: "📞",
     label: "Phone",
-    value: "+91 98313-98372",
+    value: "+91 89103-64270",
     sub: "Call / WhatsApp",
-    href: "tel:+919831398372",
+    href: "tel:+918910364270",
     grad: "from-orange-500 via-red-500 to-pink-500",
   },
   {
     emoji: "✉️",
     label: "Email",
-    value: "info@thehappymiles.in",
+    value: "sales@thehappymilestourism.com",
     sub: "We reply within 24h",
-    href: "mailto:info@thehappymiles.in",
+    href: "mailto:sales@thehappymilestourism.com",
     grad: "from-teal-400 via-cyan-500 to-blue-500",
+    darkText: true,
   },
   {
     emoji: "📍",
@@ -213,35 +214,44 @@ export default function ContactPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
             {contactInfo.map(
-              ({ emoji, label, value, sub, href, grad }, idx) => (
-                <motion.a
-                  key={label}
-                  href={href}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className={`block bg-gradient-to-br ${grad} rounded-2xl p-6 text-white text-center shadow-xl hover:scale-105 transition-transform duration-300`}
-                  data-ocid={`contact.info.${label.toLowerCase()}`}
-                >
-                  <div className="h-12 w-12 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4">
-                    <span
-                      className="text-2xl"
-                      role="presentation"
-                      aria-hidden="true"
+              ({ emoji, label, value, sub, href, grad, ...rest }, idx) => {
+                const isDarkText = "darkText" in rest && rest.darkText;
+                return (
+                  <motion.a
+                    key={label}
+                    href={href}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className={`block bg-gradient-to-br ${grad} rounded-2xl p-6 ${isDarkText ? "text-black" : "text-white"} text-center shadow-xl hover:scale-105 transition-transform duration-300`}
+                    data-ocid={`contact.info.${label.toLowerCase()}`}
+                  >
+                    <div className="h-12 w-12 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4">
+                      <span
+                        className="text-2xl"
+                        role="presentation"
+                        aria-hidden="true"
+                      >
+                        {emoji}
+                      </span>
+                    </div>
+                    <p
+                      className={`font-bold text-sm uppercase tracking-wider mb-2 ${isDarkText ? "text-black" : "text-white/80"}`}
                     >
-                      {emoji}
-                    </span>
-                  </div>
-                  <p className="font-bold text-sm uppercase tracking-wider mb-2 text-white/80">
-                    {label}
-                  </p>
-                  <p className="font-semibold text-sm leading-relaxed">
-                    {value}
-                  </p>
-                  <p className="text-white/70 text-xs mt-1">{sub}</p>
-                </motion.a>
-              ),
+                      {label}
+                    </p>
+                    <p className="font-semibold text-sm leading-relaxed break-all">
+                      {value}
+                    </p>
+                    <p
+                      className={`${isDarkText ? "text-black/80" : "text-white/70"} text-xs mt-1`}
+                    >
+                      {sub}
+                    </p>
+                  </motion.a>
+                );
+              },
             )}
           </div>
         </div>
@@ -369,7 +379,7 @@ export default function ContactPage() {
                         <Input
                           id="c-phone"
                           type="tel"
-                          placeholder="+91 98313 98372"
+                          placeholder="+91 89103 64270"
                           {...register("phone", {
                             required: "Phone is required",
                           })}

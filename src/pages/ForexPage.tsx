@@ -449,11 +449,11 @@ export default function ForexPage() {
                     <div>
                       <p className="text-white/70 text-sm">Call / WhatsApp</p>
                       <a
-                        href="tel:+919831398372"
+                        href="tel:+918910364270"
                         className="text-white font-bold text-lg hover:text-white/80 transition-colors"
                         data-ocid="forex.phone_link"
                       >
-                        +91 98313-98372
+                        +91 89103-64270
                       </a>
                     </div>
                   </div>
@@ -484,7 +484,7 @@ export default function ForexPage() {
                     </div>
                   </div>
                 </div>
-                <a href="tel:+919831398372">
+                <a href="tel:+918910364270">
                   <Button
                     className="w-full mt-6 font-bold py-3 rounded-xl text-foreground border-0 bg-white hover:bg-white/90"
                     type="button"

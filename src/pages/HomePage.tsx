@@ -736,7 +736,7 @@ export default function HomePage() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-white/80 text-white hover:bg-white/20 font-semibold px-10 transition-smooth backdrop-blur-sm"
+                className="border-white/80 text-black hover:text-black hover:bg-white/90 font-semibold px-10 transition-smooth backdrop-blur-sm"
                 data-ocid="home.cta_packages_button"
               >
                 <Link to="/packages">Browse Packages</Link>
@@ -744,7 +744,7 @@ export default function HomePage() {
             </div>
             <p className="mt-8 text-white/75 text-sm">
               AVS House, 42/1A Gurupada Halder Road, Kolkata - 700026 | Ph:
-              98313-98372
+              89103-64270
             </p>
           </motion.div>
         </div>

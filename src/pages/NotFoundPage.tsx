@@ -104,12 +104,12 @@ export default function NotFoundPage() {
                 </div>
                 <div className="mt-4 pt-4 border-t border-border">
                   <a
-                    href="tel:+919831398372"
+                    href="tel:+918910364270"
                     className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                     data-ocid="not_found.phone_link"
                   >
                     <Phone className="h-3.5 w-3.5" />
-                    Need help? Call us: +91 98313 98372
+                    Need help? Call us: +91 89103 64270
                   </a>
                 </div>
               </div>

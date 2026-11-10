@@ -98,7 +98,7 @@ export function EnquiryForm({
             asChild
             className="bg-primary text-primary-foreground hover:bg-primary/90"
           >
-            <a href="tel:+919831398372">
+            <a href="tel:+918910364270">
               <Phone className="h-4 w-4 mr-2" />
               Call Us Now
             </a>
@@ -192,7 +192,7 @@ export function EnquiryForm({
           <Input
             id="enq-phone"
             type="tel"
-            placeholder="+91 98313 98372"
+            placeholder="+91 89103 64270"
             {...register("phone", {
               required: "Phone is required",
               pattern: {

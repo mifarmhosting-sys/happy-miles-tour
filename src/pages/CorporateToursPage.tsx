@@ -415,7 +415,7 @@ export default function CorporateToursPage() {
                 Our corporate travel team will contact you within 2 business
                 hours.
               </p>
-              <p className="mt-4 font-bold text-lg">📞 98313-98372</p>
+              <p className="mt-4 font-bold text-lg">📞 89103-64270</p>
             </motion.div>
           ) : (
             <form
@@ -547,12 +547,12 @@ export default function CorporateToursPage() {
           <div className="mt-6 text-center">
             <p className="text-muted-foreground text-sm">Or reach us at:</p>
             <a
-              href="tel:+919831398372"
+              href="tel:+918910364270"
               className="inline-flex items-center gap-2 text-xl font-bold mt-1"
               style={{ color: "oklch(0.50 0.20 210)" }}
               data-ocid="corporate.phone_link"
             >
-              <Phone className="h-5 w-5" /> 98313-98372
+              <Phone className="h-5 w-5" /> 89103-64270
             </a>
           </div>
         </div>
